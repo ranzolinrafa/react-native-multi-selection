@@ -2,6 +2,9 @@
 
 This is a React Native multi selection component that uses react-navigation and react-hook-form  to open a modal style screen to select multiple items.
 
+![Main Screen with form](/screenshots/form-screen.png?raw=true "Main Screen with form")
+![Global Selection screen](/screenshots/selection-screen.png?raw=true "Global Selection screen")
+
 ## Usage
 Install project with `yarn install` 
 
