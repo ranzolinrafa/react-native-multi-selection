@@ -1,11 +1,51 @@
-# Sample Snack app
+# React Native Multi Selection component
 
-Open the `App.js` file to start writing some code. You can preview the changes directly on your phone or tablet by scanning the **QR code** or use the iOS or Android emulators. When you're done, click **Save** and share the link!
+This is a React Native multi selection component that uses react-navigation and react-hook-form  to open a modal style screen to select multiple items.
 
-When you're ready to see everything that Expo provides (or if you want to use your own editor) you can **Download** your project and use it with [expo-cli](https://docs.expo.io/get-started/installation).
+## Usage
+Install project with `yarn install` 
 
-All projects created in Snack are publicly available, so you can easily share the link to this project via link, or embed it on a web page with the `<>` button.
+### Add the MultiSelectionScreen your main navigation stack
+```javascript
+import { MultiSelectionScreen } from './src/screens/MultiSelectionScreen';
 
-If you're having problems, you can tweet to us [@expo](https://twitter.com/expo) or ask in our [forums](https://forums.expo.io/c/snack).
+...
 
-Snack is Open Source. You can find the code on the [GitHub repo](https://github.com/expo/snack).
+<NavigationContainer>
+  <MainStack.Navigator initialRouteName="MainScreen" headerMode="screen">
+    <MainStack.Screen name="MainScreen" component={MainScreen} />
+    <MainStack.Screen
+      name="MultiSelectionScreen"
+      component={MultiSelectionScreen}
+    />
+  </MainStack.Navigator>
+</NavigationContainer>
+
+...
+```
+
+### Add the MultiSelection component anywhere you want to work with react-hook-form wrapped in a Controller component
+```javascript
+<Controller
+    control={control}
+    render={({ field: { onChange, value } }) => (
+      <MultiSelect
+        label="Week Days"
+        value={value}
+        onChange={onChange}
+        options={[
+          { value: 'monday', label: 'Monday'},
+          { value: 'tuesday', label: 'Tuesday'},
+          { value: 'wednesday', label: 'Wednesday'},
+          { value: 'thursday', label: 'Thursday'},
+          { value: 'friday', label: 'Friday'},
+          { value: 'saturday', label: 'Saturday'},
+          { value: 'sunday', label: 'Sunday'},
+        ]}
+      />
+    )}
+    name="weekDays"
+  />
+```
+
+And that's it!
